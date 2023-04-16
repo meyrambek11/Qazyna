@@ -51,7 +51,8 @@ h1 {
 }
 
 select {
-    margin-left: 143.09px;
+    //margin-left: 143.09px;
+    margin-left: 9%;
     margin-top: 39px;
     border: 0.5px solid #4C4C4C;
     height: 44px;
@@ -64,7 +65,8 @@ select {
 input {
     border: 0.5px solid #4C4C4C;
     height: 40px;
-    width: 835.52px;
+    //width: 835.52px;
+    width: 60%;
     background-color: #F4F0F8;
     font-size: 16px;
     color: #6D6E76;
@@ -72,7 +74,7 @@ input {
 
 #search-word {
     display:inline-block;
-    margin-left: 143.09px;
+    margin-left: 9%;
     margin-top: 44px;
 }
 
@@ -121,9 +123,11 @@ button {
 .info {
     display:inline-block;
     height: 166px;
-    width: 851px;
+    //width: 851px;
+    width: 60%;
     background-color: #FFFFFF;
-    margin-left: 110px;
+    //margin-left: 110px;
+    margin-left: 8%;
     margin-top: 44px;
     border: none;
     border-radius: 0.5cm;

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Translation } from 'src/app/models/translation.model';
+import { LogicService } from 'src/app/services/logic.service';
 
 @Component({
   selector: 'app-edit-page',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-page.component.scss']
 })
 export class EditPageComponent {
+  translation: Translation = {
+    id: '',
+    textFrom: '',
+    textTo: '',
+    meaning: ''
+  };
 
+  constructor(
+    private logicService: LogicService
+  ){}
+
+  async editTranslation(): Promise<void> {
+  }
 }

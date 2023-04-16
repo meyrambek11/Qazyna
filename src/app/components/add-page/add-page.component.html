@@ -14,19 +14,19 @@
 
 <fieldset class="main-page">
     <label>Қазақша:</label>
-    <input type="text" id="new-word" value="Сөзді жазыңыз" style="margin-top: 44px; margin-left: 28px;"> <br>
+    <input type="text" id="new-word-kk" placeholder="Сөзді жазыңыз" style="margin-top: 44px; margin-left: 28px;"> <br>
     <label>На русском:</label>
-    <input type="text" id="new-word" value="Напишите перевод"> <br>
+    <input type="text" id="new-word-ru" placeholder="Напишите перевод"> <br>
     <label>Мағынасы:</label>
-    <input type="text" id="new-word" value="Сөздің мағынасын жазыңыз" style="margin-left: 13px;"> <br>
+    <input type="text" id="new-word-meainig-kk" placeholder="Сөздің мағынасын жазыңыз" style="margin-left: 13px;"> <br>
     <label>Значение:</label>
-    <input type="text" id="new-word" value="Напишите значение слова" style="margin-left: 26px;">
-    <button id="search">Сөзді қосу</button>
+    <input type="text" id="new-word-meaning-ru" placeholder="Напишите значение слова" style="margin-left: 26px;">
+    <button id="search" class="btn btn-outline-secondary" (click)="addTranslation()" >Сөзді қосу</button>
 
     <fieldset class="info">
-        <p id="word">Алма</p>
-        <p id="translation">Яблоко</p>
-        <p id="meaning">Алма ағашы - Яблоня</p>
+        <p id="word">{{addtranslation.text_kk}}</p>
+        <p id="translation">{{addtranslation.text_ru}}</p>
+        <p id="meaning">{{addtranslation.meaning_kk}} - {{addtranslation.meaning_ru}}</p>
     </fieldset>
     <button id="edit"><a routerLink="/edit" class="watch">Өңдеу</a></button> <br>
 </fieldset>
