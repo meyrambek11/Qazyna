@@ -1,0 +1,34 @@
+<nav>
+    <ul class="navbar">
+        <li routerLinkActive="active">
+            <a routerLink="/" class="watch">Басты бет</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="/add" class="watch">Сөз қосу</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="/all-words" class="watch">Барлық сөздер</a>
+        </li>
+    </ul>
+</nav>
+
+<fieldset class="main-page">
+    <label>Қазақша:</label>
+    <input type="text" id="new-word" value="Сөзді жазыңыз" style="margin-top: 44px; margin-left: 28px;"> <br>
+    <label>На русском:</label>
+    <input type="text" id="new-word" value="Напишите перевод"> <br>
+    <label>Мағынасы:</label>
+    <input type="text" id="new-word" value="Сөздің мағынасын жазыңыз" style="margin-left: 13px;"> <br>
+    <label>Значение:</label>
+    <input type="text" id="new-word" value="Напишите значение слова" style="margin-left: 26px;">
+    <button id="search">Сөзді қосу</button>
+
+    <fieldset class="info">
+        <p id="word">Алма</p>
+        <p id="translation">Яблоко</p>
+        <p id="meaning">Алма ағашы - Яблоня</p>
+    </fieldset>
+    <button id="edit"><a routerLink="/edit" class="watch">Өңдеу</a></button> <br>
+</fieldset>
+
+<footer></footer>
