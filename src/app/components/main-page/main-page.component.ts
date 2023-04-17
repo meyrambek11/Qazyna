@@ -12,8 +12,10 @@ import { LogicService } from 'src/app/services/logic.service';
 export class MainPageComponent {
   translation: Translation = {
     id: '',
-    textFrom: '',
-    textTo: '',
+    word_kk: '',
+    word_ru: '',
+    meaning_kk: '',
+    meaning_ru: '',
     meaning: ''
   };
 
@@ -48,9 +50,10 @@ export class MainPageComponent {
 
   async putTranslationValues(data: any){
     console.log(data)
-    this.translation.textFrom = data.textFrom;
-    this.translation.textTo = data.word;
-    this.translation.meaning = (data.meaning_kk && data.meaning_ru) ? data.from == 'kk' ? `${data.meaning_kk} - ${data.meaning_ru}` : `${data.meaning_ru} - ${data.meaning_kk}`: ''
-
+    this.translation.word_kk = data.from == 'kk' ? data.textFrom : data.word;
+    this.translation.word_ru = data.from == 'kk' ? data.word : data.textFrom
+    this.translation.meaning_kk = (data.meaning_kk) ? data.meaning_kk : ''
+    this.translation.meaning_ru = (data.meaning_ru) ? data.meaning_ru : ''
+    this.translation.meaning = (data.meaning_kk && data.meaning_kk) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
   }
 }

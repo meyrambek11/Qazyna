@@ -16,17 +16,17 @@
     <label>Қазақша:</label>
     <input type="text" id="edit-word" value="" style="margin-top: 44px; margin-left: 28px;"> <br>
     <label>На русском:</label>
-    <input type="text" id="edit-word" value="Яблоко"> <br>
+    <input type="text" id="edit-word" value=""> <br>
     <label>Мағынасы:</label>
-    <input type="text" id="edit-word" value="Алма ағашы" style="margin-left: 13px;"> <br>
+    <input type="text" id="edit-word" value="" style="margin-left: 13px;"> <br>
     <label>Значение:</label>
-    <input type="text" id="edit-word" value="Яблоня" style="margin-left: 26px;">
-    <button id="search">Өзгерту</button>
+    <input type="text" id="edit-word" value="" style="margin-left: 26px;">
+    <button id="search" (click)="editTranslation()">Өзгерту</button>
 
     <fieldset class="info">
-        <p id="word">Алма</p>
-        <p id="translation">Яблоко</p>
-        <p id="meaning">Алма ағашы - Яблоня</p>
+        <p id="word">{{translation.word_kk}}</p>
+        <p id="translation">{{translation.word_ru}}</p>
+        <p id="meaning">{{translation.meaning}}</p>
     </fieldset>
     <button id="edit"><a routerLink="/edit" class="watch">Өңдеу</a></button> <br>
     <!--<button id="delete">Жою</button>-->

@@ -9,10 +9,10 @@ import { LogicService } from 'src/app/services/logic.service';
 })
 export class EditPageComponent {
   translation: Translation = {
-    id: '',
-    textFrom: '',
-    textTo: '',
-    meaning: ''
+    // id: '',
+    // textFrom: '',
+    // textTo: '',
+    // meaning: ''
   };
 
   constructor(
@@ -20,5 +20,6 @@ export class EditPageComponent {
   ){}
 
   async editTranslation(): Promise<void> {
+    console.log(`###` + this.translation.meaning)
   }
 }
