@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { AddDto, GetTranslationDto } from "../dto/dto";
+import { Translation } from "../models/translation.model";
+import { Observable } from "rxjs";
 
 const baseUrl = 'https://shark-app-kkbr8.ondigitalocean.app/';
 @Injectable({
@@ -16,5 +18,9 @@ const baseUrl = 'https://shark-app-kkbr8.ondigitalocean.app/';
 
     async add(payload: AddDto){
         return this.http.post(`${baseUrl}translation`, payload);
+    }
+
+    getAllWords() : Observable<{data:Translation[], total: number}>{
+        return this.http.get<{data:Translation[], total: number}>(`${baseUrl}translation/words`);
     }
  }

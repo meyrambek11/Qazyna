@@ -14,13 +14,22 @@
 
 <fieldset class="main-page">
     <label>Барлығы:</label>
-    <input type="number" id="count" value="1" style="margin-top: 44px; margin-left: 20px;"> <br>
+    <input type="number" id="count" value={{total}} style="margin-top: 44px; margin-left: 20px;"> <br>
 
-    <fieldset class="word-in-all-words">
+    <div
+        class="max-w-sm overflow-hidden rounded shadow-lg"
+        *ngFor="let translation of translations"
+    >
+        <div class="px-6 py-4">
+            <div class="mb-2 text-xl font-bold">{{ translation.word_kk }}</div>
+        </div>
+    </div>
+
+    <!-- <fieldset class="word-in-all-words">
         <p id="word">А</p>
         <p id="translation" style="margin-bottom: 5px;">Алма - Яблоко</p>
         <p id="meaning" style="margin-top: 5px;">Алма ағашы - Яблоня</p>
-    </fieldset>
+    </fieldset> -->
 </fieldset>
 
 <footer></footer>
