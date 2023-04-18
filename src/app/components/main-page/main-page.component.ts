@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Translation } from 'src/app/models/translation.model';
 import { LogicService } from 'src/app/services/logic.service';
 
@@ -9,7 +9,7 @@ import { LogicService } from 'src/app/services/logic.service';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnInit {
   translation: Translation = {
     id: '',
     word_kk: '',
@@ -23,9 +23,12 @@ export class MainPageComponent {
     private logicService: LogicService
   ){}
 
+  ngOnInit() {}
+
   async searchTranslation(): Promise<void> {
     let searchText = document.getElementById('search-word') as HTMLInputElement | null;
     let languageTypes = document.getElementById('language-type') as HTMLInputElement | null;
+    if(searchText?.value == "") return;
     //TODO: check the english letters
     let payload = {
       text: searchText?.value,
@@ -33,9 +36,9 @@ export class MainPageComponent {
       to: languageTypes?.value == 'kk' ? 'ru' : 'kk' 
     };
 
-    console.log(payload)
-    
-    const data = (await this.logicService.getTranslation(payload)).subscribe({
+    console.log(payload);
+
+    (await this.logicService.getTranslation(payload)).subscribe({
       next: async (res) => {
         await this.putTranslationValues({
           ...res,
@@ -55,5 +58,9 @@ export class MainPageComponent {
     this.translation.meaning_kk = (data.meaning_kk) ? data.meaning_kk : ''
     this.translation.meaning_ru = (data.meaning_ru) ? data.meaning_ru : ''
     this.translation.meaning = (data.meaning_kk && data.meaning_kk) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
+  }
+
+  selectTranslation() {
+    console.log('edit')
   }
 }

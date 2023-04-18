@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AddTranslation } from 'src/app/models/addTranslation.model';
 import { Translation } from 'src/app/models/translation.model';
 import { LogicService } from 'src/app/services/logic.service';
@@ -10,7 +10,7 @@ import { LogicService } from 'src/app/services/logic.service';
 })
 export class AddPageComponent {
 
-  translation: Translation = {
+  @Input() translation: Translation = {
     id: '',
     word_kk: '',
     word_ru: '',
@@ -18,8 +18,11 @@ export class AddPageComponent {
     meaning_ru: '',
     meaning: ''
   };
+  @Output() onSelected = new EventEmitter<any>();
 
   constructor(private logicService: LogicService){}
+
+  ngOnInit() {}
 
   async addTranslation(): Promise<void> {
     let word_kk = document.getElementById('new-word-kk') as HTMLInputElement | null;
@@ -56,6 +59,12 @@ export class AddPageComponent {
     this.translation.meaning_kk = data.meaning_kk ? data.meaning_kk : '',
     this.translation.meaning_ru = data.meaning_ru ? data.meaning_ru : ''
     this.translation.meaning = (data.meaning_kk && data.meaning_kk) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
+  }
+
+  selectTranslation() {
+    console.log('edit')
+    console.log(this.translation);
+    this.onSelected.emit(this.translation);
   }
 
 }
