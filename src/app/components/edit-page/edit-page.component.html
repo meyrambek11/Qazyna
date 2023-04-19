@@ -1,26 +1,12 @@
-<nav>
-    <ul class="navbar">
-        <li routerLinkActive="active">
-            <a routerLink="/" class="watch">Басты бет</a>
-        </li>
-        <li routerLinkActive="active">
-            <a routerLink="/add" class="watch">Сөз қосу</a>
-        </li>
-        <li routerLinkActive="active">
-            <a routerLink="/all-words" class="watch">Барлық сөздер</a>
-        </li>
-    </ul>
-</nav>
-
 <fieldset class="main-page">
     <label>Қазақша:</label>
-    <input type="text" id="edit-word" value={{translation.word_kk}} style="margin-top: 44px; margin-left: 28px;"> <br>
+    <input type="text" id="edit-word" value={{translation.word_kk}} style="margin-top: 4%; margin-left: 29px; width: 52.8%"> <br>
     <label>На русском:</label>
-    <input type="text" id="edit-word" value={{translation.word_ru}}> <br>
+    <input type="text" id="edit-word" value={{translation.word_ru}} style="margin-top: 2%; margin-left: 12px; width: 52.8%"> <br>
     <label>Мағынасы:</label>
-    <input type="text" id="edit-word" value="" style="margin-left: 13px;"> <br>
+    <input type="text" id="edit-word" value="" style="margin-top: 2%; margin-left: 15px; width: 52.8%"> <br>
     <label>Значение:</label>
-    <input type="text" id="edit-word" value="" style="margin-left: 26px;">
+    <input type="text" id="edit-word" value="" style="margin-top: 2%; margin-left: 28px; width: 52.8%">
     <button id="search" (click)="editTranslation()">Өзгерту</button>
 
     <fieldset class="info">
@@ -31,5 +17,3 @@
     <button id="edit"><a routerLink="/edit" class="watch">Өңдеу</a></button> <br>
     <!--<button id="delete">Жою</button>-->
 </fieldset>
-
-<footer></footer>
