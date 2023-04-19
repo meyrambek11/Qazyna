@@ -16,7 +16,6 @@ export class AllWordsPageComponent {
 
 
   ngOnInit(): void {
-    console.log("###")
     this.logicService.getAllWords().subscribe(res => {
       this.translations = res.data
       this.total = res.total

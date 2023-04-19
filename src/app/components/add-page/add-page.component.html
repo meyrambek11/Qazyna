@@ -1,34 +1,18 @@
-<nav>
-    <ul class="navbar">
-        <li routerLinkActive="active">
-            <a routerLink="/" class="watch">Басты бет</a>
-        </li>
-        <li routerLinkActive="active">
-            <a routerLink="/add" class="watch">Сөз қосу</a>
-        </li>
-        <li routerLinkActive="active">
-            <a routerLink="/all-words" class="watch">Барлық сөздер</a>
-        </li>
-    </ul>
-</nav>
-
 <fieldset class="main-page">
     <label>Қазақша:</label>
-    <input type="text" id="new-word-kk" placeholder="Сөзді жазыңыз" style="margin-top: 44px; margin-left: 28px;" value= ""> <br>
+    <input type="text" id="new-word-kk" placeholder="Сөзді жазыңыз" style="margin-top: 4%; margin-left: 29px; width: 52.8%" value= ""> <br>
     <label>На русском:</label>
-    <input type="text" id="new-word-ru" placeholder="Напишите перевод" value=""> <br>
+    <input type="text" id="new-word-ru" placeholder="Напишите перевод" style="margin-top: 2%; margin-left: 12px; width: 52.8%" value=""> <br>
     <label>Мағынасы:</label>
-    <input type="text" id="new-word-meainig-kk" placeholder="Сөздің мағынасын жазыңыз" style="margin-left: 13px;" value=""> <br>
+    <input type="text" id="new-word-meainig-kk" placeholder="Сөздің мағынасын жазыңыз" style="margin-top: 2%; margin-left: 15px; width: 52.8%" value=""> <br>
     <label>Значение:</label>
-    <input type="text" id="new-word-meaning-ru" placeholder="Напишите значение слова" style="margin-left: 26px;" value="">
-    <button id="search" class="btn btn-outline-secondary" (click)="addTranslation()" >Сөзді қосу</button>
+    <input type="text" id="new-word-meaning-ru" placeholder="Напишите значение слова" style="margin-top: 2%; margin-left: 28px; width: 52.8%" value="">
+    <button id="search" (click)="addTranslation()" >Сөзді қосу</button>
 
     <fieldset class="info">
         <p id="word">{{translation.word_kk}}</p>
         <p id="translation">{{translation.word_ru}}</p>
         <p id="meaning">{{translation.meaning}}</p>
     </fieldset>
-    <button id="edit"><a routerLink="/edit" class="watch" (click)="selectTranslation()">Өңдеу</a></button> <br>
+    <button id="edit"><a routerLink="/edit" (click)="selectTranslation()">Өңдеу</a></button> 
 </fieldset>
-
-<footer></footer>
