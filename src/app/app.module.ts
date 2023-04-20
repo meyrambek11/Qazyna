@@ -7,6 +7,7 @@ import { AddPageComponent } from './components/add-page/add-page.component';
 import { AllWordsPageComponent } from './components/all-words-page/all-words-page.component';
 import { EditPageComponent } from './components/edit-page/edit-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { InformationWindowComponent } from './components/information-window/information-window.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
     MainPageComponent,
     AddPageComponent,
     AllWordsPageComponent,
-    EditPageComponent
+    EditPageComponent,
+    InformationWindowComponent
   ],
   imports: [
     BrowserModule,

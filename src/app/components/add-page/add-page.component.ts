@@ -41,7 +41,7 @@ export class AddPageComponent {
       meaning_ru: meaning_ru?.value
     }
 
-    console.log(payload)
+    //console.log(payload)
 
     const data = (await this.logicService.add(payload)).subscribe({
       next: async (res) => {
@@ -52,7 +52,7 @@ export class AddPageComponent {
   }
 
   async putTranslationValues(data: any){
-    console.log(data)
+    //console.log(data)
     this.translation.id = data.id
     this.translation.word_kk = data.word_kk;
     this.translation.word_ru = data.word_ru;
@@ -62,8 +62,8 @@ export class AddPageComponent {
   }
 
   selectTranslation() {
-    console.log('edit')
-    console.log(this.translation);
+    //console.log('edit')
+    //console.log(this.translation);
     this.onSelected.emit(this.translation);
   }
 

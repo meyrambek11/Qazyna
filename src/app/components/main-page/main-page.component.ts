@@ -1,8 +1,9 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Translation } from 'src/app/models/translation.model';
 import { LogicService } from 'src/app/services/logic.service';
-
-
+import { EditPageComponent } from '../edit-page/edit-page.component';
+import { DataService } from 'src/app/services/data.service';
+import { InformationWindowComponent } from '../information-window/information-window.component';
 
 @Component({
   selector: 'app-main-page',
@@ -10,6 +11,9 @@ import { LogicService } from 'src/app/services/logic.service';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+
+ // @ViewChild(InformationWindowComponent) view!: InformationWindowComponent;
+
   translation: Translation = {
     id: '',
     word_kk: '',
@@ -19,11 +23,8 @@ export class MainPageComponent implements OnInit {
     meaning: ''
   };
 
-  constructor(
-    private logicService: LogicService
-  ){}
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   async searchTranslation(): Promise<void> {
     let searchText = document.getElementById('search-word') as HTMLInputElement | null;
@@ -35,8 +36,6 @@ export class MainPageComponent implements OnInit {
       from: languageTypes?.value,
       to: languageTypes?.value == 'kk' ? 'ru' : 'kk' 
     };
-
-    console.log(payload);
 
     (await this.logicService.getTranslation(payload)).subscribe({
       next: async (res) => {
@@ -52,7 +51,6 @@ export class MainPageComponent implements OnInit {
   }
 
   async putTranslationValues(data: any){
-    console.log(data)
     this.translation.word_kk = data.from == 'kk' ? data.textFrom : data.word;
     this.translation.word_ru = data.from == 'kk' ? data.word : data.textFrom
     this.translation.meaning_kk = (data.meaning_kk) ? data.meaning_kk : ''
@@ -60,7 +58,14 @@ export class MainPageComponent implements OnInit {
     this.translation.meaning = (data.meaning_kk && data.meaning_kk) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
   }
 
-  selectTranslation() {
-    console.log('edit')
+  getTranslatedData() {
+    this.dataService.myMethod(this.translation);
+  }
+
+  constructor(
+    private logicService: LogicService,
+    private dataService: DataService
+  ){
+    this.getTranslatedData();
   }
 }
