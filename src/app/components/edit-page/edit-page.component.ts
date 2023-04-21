@@ -5,6 +5,7 @@ import { MainPageComponent } from '../main-page/main-page.component';
 import { DataService } from 'src/app/services/data.service';
 import { editTranslation } from 'src/app/models/editTranslation.model';
 import { ConnectableObservable } from 'rxjs';
+import { InformationWindowComponent } from '../information-window/information-window.component';
 
 @Component({
   selector: 'app-edit-page',
@@ -13,6 +14,8 @@ import { ConnectableObservable } from 'rxjs';
 })
 
 export class EditPageComponent implements OnInit{
+
+  @ViewChild(InformationWindowComponent) view!: InformationWindowComponent;
 
   @ViewChild('input_kk')
   inputkkReference!:ElementRef;

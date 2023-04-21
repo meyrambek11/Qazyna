@@ -8,15 +8,17 @@ import { AllWordsPageComponent } from './components/all-words-page/all-words-pag
 import { EditPageComponent } from './components/edit-page/edit-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InformationWindowComponent } from './components/information-window/information-window.component';
+import { FirstPageComponent } from './components/first-page/first-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FirstPageComponent,
     MainPageComponent,
     AddPageComponent,
     AllWordsPageComponent,
     EditPageComponent,
-    InformationWindowComponent
+    InformationWindowComponent,
   ],
   imports: [
     BrowserModule,

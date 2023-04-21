@@ -12,7 +12,7 @@ import { InformationWindowComponent } from '../information-window/information-wi
 })
 export class MainPageComponent implements OnInit {
 
- // @ViewChild(InformationWindowComponent) view!: InformationWindowComponent;
+  @ViewChild(InformationWindowComponent) view!: InformationWindowComponent;
 
   translation: Translation = {
     id: '',
@@ -58,7 +58,7 @@ export class MainPageComponent implements OnInit {
     this.translation.meaning = (data.meaning_kk && data.meaning_kk) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
   }
 
-  getTranslatedData() {
+  getTranslatedData(): void {
     this.dataService.myMethod(this.translation);
   }
 

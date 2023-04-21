@@ -5,17 +5,11 @@
         <option value="ru">Руский-Қазақша</option>
     </select>
     <br>
-    <input #titleInput type="text" id="search-word" placeholder="Соз жазыныз..." value="" #name>
+    <input #titleInput type="search" id="search-word" placeholder="Сөзді жазыңыз..." value="" #name>
     <button id="search" (click)="searchTranslation()" >Іздеу</button>
 
-    <fieldset class="info">
-        <p id="word">{{translation.word_kk}}</p>
-        <p id="translation">{{translation.word_ru}}</p>
-        <p id="meaning">{{translation.meaning}}</p>
-    </fieldset>
+    <app-information-window [word_kk]="translation.word_kk" [word_ru]="translation.word_ru" [meaning]="translation.meaning"></app-information-window>
     <button id="edit"><a routerLink="/edit" (click)="getTranslatedData()">Өңдеу</a></button>
-    <!--<button id="delete">Жою</button>-->
-
 </fieldset>
     
 

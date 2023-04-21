@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { AddTranslation } from 'src/app/models/addTranslation.model';
 import { Translation } from 'src/app/models/translation.model';
 import { LogicService } from 'src/app/services/logic.service';
+import { InformationWindowComponent } from '../information-window/information-window.component';
 
 @Component({
   selector: 'app-add-page',
@@ -9,6 +10,8 @@ import { LogicService } from 'src/app/services/logic.service';
   styleUrls: ['./add-page.component.scss']
 })
 export class AddPageComponent {
+
+  @ViewChild(InformationWindowComponent) view!: InformationWindowComponent;
 
   @Input() translation: Translation = {
     id: '',
