@@ -27,24 +27,44 @@ export class EditPageComponent implements OnInit{
   };
 
   public constructor(
-    private dataService: DataService) { }
+    private dataService: DataService,
+    private logicService: LogicService
+  ) { }
 
   ngOnInit(): void {
     this.dataList = this.dataService.getData();
   }
 
   Delete() {
-    this.dataList.word_kk = '';
-    this.dataList.word_ru = '';
-    this.dataList.meaning_kk = '';
-    this.dataList.meaning_ru = '';
-    this.dataList.meaning = '';
+    // this.dataList.word_kk = '';
+    // this.dataList.word_ru = '';
+    // this.dataList.meaning_kk = '';
+    // this.dataList.meaning_ru = '';
+    // this.dataList.meaning = '';
   }
 
-  Change() {
-    this.dataList.word_kk = this.inputkkReference.nativeElement.value;
-    this.dataList.word_ru = this.inputkkReference.nativeElement.value;
-    this.dataList.meaning_kk = this.inputkkReference.nativeElement.value;
-    this.dataList.meaning_ru = this.inputkkReference.nativeElement.value;
+  async Change() {
+    console.log( `id: ` + this.dataList.id)
+    let id = this.dataList.id ? this.dataList.id : "";
+    let payload = {
+      word_kk: this.dataList.word_kk,
+      word_ru: this.dataList.word_ru,
+      meaning_kk: this.dataList.meaning_kk,
+      meaning_ru: this.dataList.meaning_ru
+    }
+    console.log(payload)
+    console.log("#####")
+    if(id == "") return;
+    // (await this.logicService.update(id, payload)).subscribe({
+    //   next: async (res) => {
+    //     console.log(res)
+    //   },
+    //   error: (e) => console.error(e)
+    // })
+    // this.dataList.id = this.inputkkReference.nativeElement.value;
+    // this.dataList.word_kk = this.inputkkReference.nativeElement.value;
+    // this.dataList.word_ru = this.inputkkReference.nativeElement.value;
+    // this.dataList.meaning_kk = this.inputkkReference.nativeElement.value;
+    // this.dataList.meaning_ru = this.inputkkReference.nativeElement.value;
   }
 }

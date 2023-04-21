@@ -23,4 +23,8 @@ const baseUrl = 'https://shark-app-kkbr8.ondigitalocean.app/';
     getAllWords() : Observable<{data:Translation[], total: number}>{
         return this.http.get<{data:Translation[], total: number}>(`${baseUrl}translation/words`);
     }
+
+    async update(id: string, data: any){
+        return this.http.patch<Translation>(`${baseUrl}translation/${id}`, data);
+    }
  }

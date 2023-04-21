@@ -39,20 +39,16 @@ export class MainPageComponent implements OnInit {
 
     (await this.logicService.getTranslation(payload)).subscribe({
       next: async (res) => {
-        await this.putTranslationValues({
-          ...res,
-          from: payload.from,
-          to: payload.to,
-          textFrom: payload.text
-        })
+        await this.putTranslationValues(res)
       },
       error: (e) => console.error(e)
     })
   }
 
   async putTranslationValues(data: any){
-    this.translation.word_kk = data.from == 'kk' ? data.textFrom : data.word;
-    this.translation.word_ru = data.from == 'kk' ? data.word : data.textFrom
+    this.translation.id = data.id;
+    this.translation.word_kk = data.word_kk;
+    this.translation.word_ru = data.word_ru;
     this.translation.meaning_kk = (data.meaning_kk) ? data.meaning_kk : ''
     this.translation.meaning_ru = (data.meaning_ru) ? data.meaning_ru : ''
     this.translation.meaning = (data.meaning_kk && data.meaning_kk) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
