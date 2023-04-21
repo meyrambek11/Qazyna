@@ -1,7 +1,10 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, Input, OnInit, ElementRef } from '@angular/core';
 import { Translation } from 'src/app/models/translation.model';
 import { LogicService } from 'src/app/services/logic.service';
 import { MainPageComponent } from '../main-page/main-page.component';
+import { DataService } from 'src/app/services/data.service';
+import { editTranslation } from 'src/app/models/editTranslation.model';
+import { ConnectableObservable } from 'rxjs';
 
 @Component({
   selector: 'app-edit-page',
@@ -9,34 +12,39 @@ import { MainPageComponent } from '../main-page/main-page.component';
   styleUrls: ['./edit-page.component.scss']
 })
 
-export class EditPageComponent implements AfterViewInit {
-  @ViewChild(MainPageComponent) mainPageComponent: any;
+export class EditPageComponent implements OnInit{
 
-  translation: Translation = {
+  @ViewChild('input_kk')
+  inputkkReference!:ElementRef;
+
+  dataList: editTranslation = {
     id: '',
     word_kk: '',
     word_ru: '',
     meaning_kk: '',
     meaning_ru: '',
     meaning: ''
+  };
+
+  public constructor(
+    private dataService: DataService) { }
+
+  ngOnInit(): void {
+    this.dataList = this.dataService.getData();
   }
 
-  ngAfterViewInit() {
-    console.log(this.mainPageComponent)
-    // this.translation.id = this.mainPageComponent.translation.id;
+  Delete() {
+    this.dataList.word_kk = '';
+    this.dataList.word_ru = '';
+    this.dataList.meaning_kk = '';
+    this.dataList.meaning_ru = '';
+    this.dataList.meaning = '';
   }
 
-  constructor(
-    private logicService: LogicService
-  ){}
-
-
-  async editTranslation(): Promise<void> {
-    console.log(`###` + this.translation.meaning)
-  }
-
-  selectTranslation(translate: any) {
-    console.log("22222")
-    console.log(translate)
+  Change() {
+    this.dataList.word_kk = this.inputkkReference.nativeElement.value;
+    this.dataList.word_ru = this.inputkkReference.nativeElement.value;
+    this.dataList.meaning_kk = this.inputkkReference.nativeElement.value;
+    this.dataList.meaning_ru = this.inputkkReference.nativeElement.value;
   }
 }

@@ -5,7 +5,7 @@
         <option value="ru">Руский-Қазақша</option>
     </select>
     <br>
-    <input type="text" id="search-word" placeholder="Соз жазыныз..." value="">
+    <input #titleInput type="text" id="search-word" placeholder="Соз жазыныз..." value="" #name>
     <button id="search" (click)="searchTranslation()" >Іздеу</button>
 
     <fieldset class="info">
@@ -13,7 +13,9 @@
         <p id="translation">{{translation.word_ru}}</p>
         <p id="meaning">{{translation.meaning}}</p>
     </fieldset>
-    <button id="edit"><a routerLink="/edit">Өңдеу</a></button> 
-    <button id="delete">Жою</button>
+    <button id="edit"><a routerLink="/edit" (click)="getTranslatedData()">Өңдеу</a></button>
+    <!--<button id="delete">Жою</button>-->
+
 </fieldset>
+    
 
