@@ -6,4 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./information-window.component.scss']
 })
 export class InformationWindowComponent {
+
+  @Input() word_kk: any;
+  @Input() word_ru: any;
+  @Input() meaning: any;
 }

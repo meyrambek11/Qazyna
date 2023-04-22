@@ -1,14 +1,14 @@
 <fieldset class="main-page">
     <label>Барлығы:</label>
-    <input type="number" id="count" value={{total}} style="margin-top: 4%; margin-left: 10%; margin-bottom: 3.5%;"> <br>
+    <div id="count" style="margin-top: 4%; margin-left: 10%; margin-bottom: 3.5%;">{{total}}</div> <br>
 
-    <table>
+    <div style="column-count: 3;">
         <div *ngFor="let translation of translations" style="margin-left: 10%; margin-bottom: 3%; border-bottom: 1px solid black; margin-right: 10%;">
             <div id="word" style="margin-top: 2%;">{{ translation.word_kk }}</div>
             <div id="translation" style="margin-top: 1%;">{{ translation.word_ru }}</div>
             <div id="meaning" style="margin-top: 0.5%;">{{ translation.meaning_kk }} - {{ translation.meaning_ru }}</div>
         </div>
-    </table>
+    </div>
       
 </fieldset>
 

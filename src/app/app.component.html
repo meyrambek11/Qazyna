@@ -1,16 +1,25 @@
 <nav>
     <ul class="navbar">
         <li routerLinkActive="active">
-            <a routerLink="/" class="watch">Басты бет</a>
+            <a routerLink="/main" class="pages">Аудару</a>
         </li>
         <li routerLinkActive="active">
-            <a routerLink="/add" class="watch">Сөз қосу</a>
+            <a routerLink="/add" class="pages">Сөз қосу</a>
         </li>
         <li routerLinkActive="active">
-            <a routerLink="/all-words" class="watch">Барлық сөздер</a>
+            <a routerLink="/all-words" class="pages">Барлық сөздер</a>
+        </li>
+        <li routerLinkActive="active" class="label">    
+            <a routerLink="/">Qazyna</a>
         </li>
     </ul>
 </nav>
 <router-outlet></router-outlet>
 
-<footer></footer>
+<footer>
+    <ul class="navbar">
+        <li routerLinkActive="active" class="label">    
+            <a routerLink="/">Qazyna</a>
+        </li>
+    </ul>
+</footer>
