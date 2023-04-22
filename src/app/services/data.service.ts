@@ -25,9 +25,6 @@ export class DataService{
     }
 
     async myMethod(tr: any) {
-        console.log("222")
-        console.log(tr); // У нас есть данные! Давайте вернем их, чтобы подписчики могли его использовать!
-        // тут мы можем делать что-нибудь с данными
         this.edittranslation.id = tr.id;
         this.edittranslation.word_kk = tr.word_kk;
         this.edittranslation.word_ru = tr.word_ru;

@@ -1,4 +1,4 @@
-<fieldset class="main-page">
+<fieldset class="main">
     <h1>Өзге тілдің бәрін біл, өз тіліңді құрметте!</h1>
     <select name="languages" id = "language-type">
         <option value="kk">Қазақша-Русский</option>
@@ -9,7 +9,7 @@
     <button id="search" (click)="searchTranslation()" >Іздеу</button>
 
     <app-information-window [word_kk]="translation.word_kk" [word_ru]="translation.word_ru" [meaning]="translation.meaning"></app-information-window>
-    <button id="edit"><a routerLink="/edit" (click)="getTranslatedData()">Өңдеу</a></button>
+    <button id="change-btn" routerLink="/edit" (click)="getTranslatedData()">Өңдеу</button>
 </fieldset>
     
 

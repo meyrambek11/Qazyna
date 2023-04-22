@@ -3,6 +3,7 @@ import { AddTranslation } from 'src/app/models/addTranslation.model';
 import { Translation } from 'src/app/models/translation.model';
 import { LogicService } from 'src/app/services/logic.service';
 import { InformationWindowComponent } from '../information-window/information-window.component';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-add-page',
@@ -23,8 +24,6 @@ export class AddPageComponent {
   };
   @Output() onSelected = new EventEmitter<any>();
 
-  constructor(private logicService: LogicService){}
-
   ngOnInit() {}
 
   async addTranslation(): Promise<void> {
@@ -44,8 +43,6 @@ export class AddPageComponent {
       meaning_ru: meaning_ru?.value
     }
 
-    //console.log(payload)
-
     const data = (await this.logicService.add(payload)).subscribe({
       next: async (res) => {
         await this.putTranslationValues(res)
@@ -55,7 +52,6 @@ export class AddPageComponent {
   }
 
   async putTranslationValues(data: any){
-    //console.log(data)
     this.translation.id = data.id
     this.translation.word_kk = data.word_kk;
     this.translation.word_ru = data.word_ru;
@@ -65,9 +61,18 @@ export class AddPageComponent {
   }
 
   selectTranslation() {
-    //console.log('edit')
-    //console.log(this.translation);
     this.onSelected.emit(this.translation);
+  }
+
+  getTranslatedData(): void {
+    this.dataService.myMethod(this.translation);
+  }
+
+  constructor(
+    private logicService: LogicService,
+    private dataService: DataService
+    ){
+      this.getTranslatedData();
   }
 
 }

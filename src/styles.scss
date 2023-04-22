@@ -56,7 +56,7 @@ a {
     height: 10vh;
 }
 
-.main-page {
+.main {
     margin: 0 auto;
     padding: 0;
     background-color: #F4F0F8;
@@ -157,6 +157,9 @@ label {
     background-color: #F4F0F8;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     box-shadow: 0 4px 2px -2px #4C4C4C;
+    margin-top: 4%;
+    margin-left: 10%;
+    margin-bottom: 3.5%;
 }
 
 button {
@@ -184,20 +187,37 @@ button:focus {
     background-color: #FFAA3F;
 }
 
-.about-us-content {
-  //  height: 45vh;
-  //  width: 50vw;
+.about-us-content-one {
+    font-size: 2.2vmin;
+    font-weight: bold;
     padding: 5vmin;
-    margin-left: 24vw;
-    margin-right: 24vw;
-    margin-top: 7vh;
+    margin-left: 19vw;
+    margin-right: 48vw;
+    margin-top: -68vh;
     text-align: center;
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    color: #232536;
-    border-radius: 20%;
-    border: 0.5vh solid #ffaa3f;
+    color: #655953;
     background-color: #ffffff;
+    position: relative;
+    z-index: 1;
+    box-shadow: 5px 10px 18px #ffffff;
 }
+
+.about-us-content-two {
+      font-size: 1.8vmin;
+      font-weight: bold;
+      padding: 5vmin;
+      margin-left: 48vw;
+      margin-right: 19vw;
+      margin-top: -27vh;
+      text-align: center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #5f6553;
+      background-color: #ffffff;
+      position: relative;
+      z-index: 1;
+      box-shadow: 5px 10px 18px #ffffff;
+  }
 
 #search {
     margin-left: 5%;
@@ -250,24 +270,7 @@ button:focus {
     font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
-/*footer {
-    bottom: 0;
-    margin-bottom: 0;
-    width: 100%;
-    height: 81px;
-    background-color: #232536;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-}*/
-
-#edit {
-    position: absolute;
-    margin-left: 5%;
-    margin-top: 10vh;
-}
-
-#delete {
+#change-btn {
     position: absolute;
     margin-left: 5%;
     margin-top: 20vh;

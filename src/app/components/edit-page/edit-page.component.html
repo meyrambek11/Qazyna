@@ -1,15 +1,14 @@
-<fieldset class="main-page">
+<fieldset class="main">
     <label>Қазақша:</label>
-    <input #input_kk type="text" id="edit-word" value="{{dataList.word_kk}}" style="margin-top: 4%; margin-left: 40px; width: 52.8%"> <br>
+    <input #input_kk type="text" id="edit-word" value="{{dataList.word_kk}}" style="margin-top: 4%; margin-left: 40px; width: 51%;"> <br>
     <label>На русском:</label>
-    <input #input_ru type="text" id="edit-word" value="{{dataList.word_ru}}" style="margin-top: 2%; margin-left: 12px; width: 52.8%"> <br>
+    <input #input_ru type="text" id="edit-word" value="{{dataList.word_ru}}" style="margin-top: 2%; margin-left: 12px; width: 51%;"> <br>
     <label>Мағынасы:</label>
-    <input #input_meaning_kk type="text" id="edit-word" value="{{dataList.meaning_kk}}" style="margin-top: 2%; margin-left: 23px; width: 52.8%"> <br>
+    <input #input_meaning_kk type="text" id="edit-word" value="{{dataList.meaning_kk}}" style="margin-top: 2%; margin-left: 23px; width: 51%;"> <br>
     <label>Значение:</label>
-    <input #input_meaning_ru type="text" id="edit-word" value="{{dataList.meaning_ru}}" style="margin-top: 2%; margin-left: 31px; width: 52.8%">
-    <button id="search" (click)="Change()">Өзгерту</button>
+    <input #input_meaning_ru type="text" id="edit-word" value="{{dataList.meaning_ru}}" style="margin-top: 2%; margin-left: 31px; width: 51%;">
+    <button id="search" (click)="change()">Өзгерту</button>
 
     <app-information-window [word_kk]="dataList.word_kk" [word_ru]="dataList.word_ru" [meaning]="dataList.meaning"></app-information-window>
-    <button id="edit"><a routerLink="/edit">Өңдеу</a></button>
-    <button id="delete" (click)="Delete()">Жою</button>
+    <button id="change-btn" (click)="delete()" routerLink="/main">Жою</button>
 </fieldset>

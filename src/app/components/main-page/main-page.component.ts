@@ -51,7 +51,7 @@ export class MainPageComponent implements OnInit {
     this.translation.word_ru = data.word_ru;
     this.translation.meaning_kk = (data.meaning_kk) ? data.meaning_kk : ''
     this.translation.meaning_ru = (data.meaning_ru) ? data.meaning_ru : ''
-    this.translation.meaning = (data.meaning_kk && data.meaning_kk) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
+    this.translation.meaning = (data.meaning_kk && data.meaning_ru) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
   }
 
   getTranslatedData(): void {

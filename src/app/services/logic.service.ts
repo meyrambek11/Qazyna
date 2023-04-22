@@ -25,6 +25,10 @@ const baseUrl = 'https://shark-app-kkbr8.ondigitalocean.app/';
     }
 
     async update(id: string, data: any){
-        return this.http.patch<Translation>(`${baseUrl}translation/${id}`, data);
+        return this.http.patch(`${baseUrl}translation/${id}`, data);
+    }
+
+    delete(id: any): Observable<any> {
+        return this.http.delete(`${baseUrl}translation/${id}`);
     }
  }

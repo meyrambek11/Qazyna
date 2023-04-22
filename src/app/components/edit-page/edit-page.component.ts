@@ -17,8 +17,17 @@ export class EditPageComponent implements OnInit{
 
   @ViewChild(InformationWindowComponent) view!: InformationWindowComponent;
 
+  @ViewChild('input_ru')
+  inputruReference!:ElementRef;
+
   @ViewChild('input_kk')
   inputkkReference!:ElementRef;
+
+  @ViewChild('input_meaning_kk')
+  inputmeaningkkReference!:ElementRef;
+
+  @ViewChild('input_meaning_ru')
+  inputmeaningruReference!:ElementRef;
 
   dataList: editTranslation = {
     id: '',
@@ -38,36 +47,41 @@ export class EditPageComponent implements OnInit{
     this.dataList = this.dataService.getData();
   }
 
-  Delete() {
-    // this.dataList.word_kk = '';
-    // this.dataList.word_ru = '';
-    // this.dataList.meaning_kk = '';
-    // this.dataList.meaning_ru = '';
-    // this.dataList.meaning = '';
+  delete() {
+    let id = this.dataList.id ? this.dataList.id : "";
+    if(id == "") return;
+
+    const data = (this.logicService.delete(id)).subscribe({
+      error: (e) => console.error(e)
+    })
   }
 
-  async Change() {
-    console.log( `id: ` + this.dataList.id)
+  async change() {
     let id = this.dataList.id ? this.dataList.id : "";
-    let payload = {
-      word_kk: this.dataList.word_kk,
-      word_ru: this.dataList.word_ru,
-      meaning_kk: this.dataList.meaning_kk,
-      meaning_ru: this.dataList.meaning_ru
-    }
-    console.log(payload)
-    console.log("#####")
     if(id == "") return;
-    // (await this.logicService.update(id, payload)).subscribe({
-    //   next: async (res) => {
-    //     console.log(res)
-    //   },
-    //   error: (e) => console.error(e)
-    // })
-    // this.dataList.id = this.inputkkReference.nativeElement.value;
-    // this.dataList.word_kk = this.inputkkReference.nativeElement.value;
-    // this.dataList.word_ru = this.inputkkReference.nativeElement.value;
-    // this.dataList.meaning_kk = this.inputkkReference.nativeElement.value;
-    // this.dataList.meaning_ru = this.inputkkReference.nativeElement.value;
+    let payload = {
+      word_kk: this.inputkkReference.nativeElement.value,
+      word_ru: this.inputruReference.nativeElement.value,
+      meaning_kk: this.inputmeaningkkReference.nativeElement.value,
+      meaning_ru: this.inputmeaningruReference.nativeElement.value
+    }
+
+    const data = (await this.logicService.update(id, payload)).subscribe({
+      next: async (res) => {
+        this.putChangableValues({
+          ...res,
+        })
+      },
+      error: (e) => console.error(e)
+    })
+  }
+
+  putChangableValues(data: any){
+    this.dataList.id = data.id;
+    this.dataList.word_kk = data.word_kk;
+    this.dataList.word_ru = data.word_ru;
+    this.dataList.meaning_kk = (data.meaning_kk) ? data.meaning_kk : ''
+    this.dataList.meaning_ru = (data.meaning_ru) ? data.meaning_ru : ''
+    this.dataList.meaning = (data.meaning_kk && data.meaning_ru) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
   }
 }
