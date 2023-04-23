@@ -9,6 +9,9 @@ import { EditPageComponent } from './components/edit-page/edit-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InformationWindowComponent } from './components/information-window/information-window.component';
 import { FirstPageComponent } from './components/first-page/first-page.component';
+import { FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip'; 
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { FirstPageComponent } from './components/first-page/first-page.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    MatButtonModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

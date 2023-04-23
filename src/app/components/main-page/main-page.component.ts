@@ -1,7 +1,6 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Translation } from 'src/app/models/translation.model';
 import { LogicService } from 'src/app/services/logic.service';
-import { EditPageComponent } from '../edit-page/edit-page.component';
 import { DataService } from 'src/app/services/data.service';
 import { InformationWindowComponent } from '../information-window/information-window.component';
 
@@ -23,6 +22,11 @@ export class MainPageComponent implements OnInit {
     meaning: ''
   };
 
+  loading = false;
+
+  save(): void {
+    this.loading = true;
+  }
 
   ngOnInit() { }
 
@@ -52,6 +56,7 @@ export class MainPageComponent implements OnInit {
     this.translation.meaning_kk = (data.meaning_kk) ? data.meaning_kk : ''
     this.translation.meaning_ru = (data.meaning_ru) ? data.meaning_ru : ''
     this.translation.meaning = (data.meaning_kk && data.meaning_ru) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
+    this.loading = false;
   }
 
   getTranslatedData(): void {
@@ -64,4 +69,5 @@ export class MainPageComponent implements OnInit {
   ){
     this.getTranslatedData();
   }
+
 }

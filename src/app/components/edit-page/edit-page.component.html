@@ -7,7 +7,7 @@
     <input #input_meaning_kk type="text" id="edit-word" value="{{dataList.meaning_kk}}" style="margin-top: 2%; margin-left: 23px; width: 51%;"> <br>
     <label>Значение:</label>
     <input #input_meaning_ru type="text" id="edit-word" value="{{dataList.meaning_ru}}" style="margin-top: 2%; margin-left: 31px; width: 51%;">
-    <button id="search" (click)="change()">Өзгерту</button>
+    <button id="search" (click)="change()" [class.spinner]="loading" [disabled]="loading" (click)="save()">Өзгерту</button>
 
     <app-information-window [word_kk]="dataList.word_kk" [word_ru]="dataList.word_ru" [meaning]="dataList.meaning"></app-information-window>
     <button id="change-btn" (click)="delete()" routerLink="/main">Жою</button>

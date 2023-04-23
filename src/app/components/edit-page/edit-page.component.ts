@@ -1,10 +1,7 @@
 import { AfterViewInit, Component, ViewChild, Input, OnInit, ElementRef } from '@angular/core';
-import { Translation } from 'src/app/models/translation.model';
 import { LogicService } from 'src/app/services/logic.service';
-import { MainPageComponent } from '../main-page/main-page.component';
 import { DataService } from 'src/app/services/data.service';
 import { editTranslation } from 'src/app/models/editTranslation.model';
-import { ConnectableObservable } from 'rxjs';
 import { InformationWindowComponent } from '../information-window/information-window.component';
 
 @Component({
@@ -37,6 +34,12 @@ export class EditPageComponent implements OnInit{
     meaning_ru: '',
     meaning: ''
   };
+
+  loading = false;
+
+  save(): void {
+    this.loading = true;
+  }
 
   public constructor(
     private dataService: DataService,
@@ -83,5 +86,6 @@ export class EditPageComponent implements OnInit{
     this.dataList.meaning_kk = (data.meaning_kk) ? data.meaning_kk : ''
     this.dataList.meaning_ru = (data.meaning_ru) ? data.meaning_ru : ''
     this.dataList.meaning = (data.meaning_kk && data.meaning_ru) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
+    this.loading = false;
   }
 }

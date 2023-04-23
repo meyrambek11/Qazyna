@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { AddTranslation } from 'src/app/models/addTranslation.model';
 import { Translation } from 'src/app/models/translation.model';
 import { LogicService } from 'src/app/services/logic.service';
 import { InformationWindowComponent } from '../information-window/information-window.component';
@@ -11,6 +10,10 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./add-page.component.scss']
 })
 export class AddPageComponent {
+  wordKK = '';
+  wordRU = '';
+  meaningKK = '';
+  meaningRU = '';
 
   @ViewChild(InformationWindowComponent) view!: InformationWindowComponent;
 
@@ -22,6 +25,13 @@ export class AddPageComponent {
     meaning_ru: '',
     meaning: ''
   };
+
+  loading = false;
+
+  save(): void {
+    this.loading = true;
+  }
+
   @Output() onSelected = new EventEmitter<any>();
 
   ngOnInit() {}
@@ -57,7 +67,8 @@ export class AddPageComponent {
     this.translation.word_ru = data.word_ru;
     this.translation.meaning_kk = data.meaning_kk ? data.meaning_kk : '',
     this.translation.meaning_ru = data.meaning_ru ? data.meaning_ru : ''
-    this.translation.meaning = (data.meaning_kk && data.meaning_kk) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
+    this.translation.meaning = (data.meaning_kk && data.meaning_ru) ? `${data.meaning_kk} - ${data.meaning_ru}` : ''
+    this.loading = false;
   }
 
   selectTranslation() {

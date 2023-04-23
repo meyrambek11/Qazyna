@@ -275,3 +275,21 @@ button:focus {
     margin-left: 5%;
     margin-top: 20vh;
 }
+
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+  }
+   
+.spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    width: 10vmin;
+    height: 10vmin;
+    margin-top: 20vh;
+    margin-left: -45%;
+    border-radius: 50%;
+    border: 10px solid #ffffff;
+    border-top-color: #232536;
+    animation: spinner .8s linear infinite;
+}
